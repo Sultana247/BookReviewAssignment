@@ -4,16 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book review</title>
+    <!-- daisyui and tailwind css -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- font awsome -->
+     <script src="https://kit.fontawesome.com/653300f23e.js" crossorigin="anonymous"></script>
+    <!-- google font -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <header>
-
+<body class="mulish-font">
+    <header class="container mx-auto mt-12">
+        <!-- navbar -->
+         <div class="navbar ">
+            <div class="flex-1">
+                <img src="images/logo.png" alt="" srcset="">
+            </div>
+            <div class="flex-none">
+                <!-- home -->
+                <div class="dropdown dropdown-end tooltip" data-tip="Home">
+                    <div tabindex="0" role="button" class="btn bg-[#12132D08] border-[#0307121A] btn-circle p-6">
+                        <div class="indicator">
+                        <i class="fa-regular fa-house fa-xl"></i>
+                        
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- tooltip -->
+                <div class="dropdown dropdown-end tooltip" data-tip="Tooltip">
+                    <div tabindex="0" role="button" class="btn bg-[#12132D08] border-[#0307121A] btn-circle p-6">
+                        <div class="indicator">
+                        
+                        <i class="fa-solid fa-pencil fa-xl"></i>
+                        
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- add people -->
+                <div class="dropdown dropdown-end tooltip" data-tip="Add user">
+                    <div tabindex="0" role="button" class="btn bg-[#12132D08] border-[#0307121A] btn-circle p-6">
+                        <div class="indicator">
+                        <i class="fa-solid fa-user-plus fa-xl"></i>
+                        
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- flag-->
+                <div class="dropdown dropdown-end tooltip" data-tip="Flag">
+                    <div tabindex="0" role="button" class="btn bg-[#12132D08] border-[#0307121A] btn-circle p-6">
+                        <div class="indicator">
+                        
+                        <i class="fa-regular fa-flag fa-xl"></i>
+                        
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                    <button class="bg-[#797DFC] rounded-[50px] text-white font-bold text-xl py-[14px] px-7">Sign In</button>
+                   
+                
+            </div>
+        </div>
     </header>
-    <main>
+    <main class="container mx-auto">
 
     </main>
     <footer>
-        
+
     </footer>
 </body>
 </html>
