@@ -1,30 +1,40 @@
 const loadBooks =async () =>{
-
+    
     const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
+    
     const data = await res.json();
     
     const books = data.posts;
     console.log(books);
+    loadSpinar(true);
     displaybooks(books);
+    
+    
 }
 loadBooks();
 
+
 const searchBooks = async(searchInputText) => {
+    
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchInputText}`);
+    
     const data = await res.json();
     
     const books = data.posts;
-    console.log(books);
+    
+    
     displaybooks(books);
+    
+    
+    
 
 }
 
 const handleSearch = ()=>{
     const searchInput = document.getElementById('searchInput');
     const searchInputText = searchInput.value;
-    
-    searchBooks(searchInputText)
-    console.log(searchInputText)
+    searchBooks(searchInputText);
+    loadSpinar(true);  
 }
 
 const displaybooks =(books)=>{
@@ -74,6 +84,28 @@ const displaybooks =(books)=>{
                         </div>
                     </div>
         `
+        
         bookContainer.appendChild(bookCard);
+        loadSpinar(false);
+        
     });
+}
+
+
+const loadSpinar = (isLoading)=>{
+    console.log(isLoading);
+    setInterval(2000);
+    const spinner = document.getElementById('spinner');
+    if(isLoading){
+         
+       
+        spinner.classList.remove('hidden');
+    
+    
+   
+    }
+    if(!isLoading){
+         spinner.classList.add('hidden');
+    }
+
 }
