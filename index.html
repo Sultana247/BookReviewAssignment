@@ -122,7 +122,7 @@
             </div>
 
             <!-- load spiner -->
-             <div class="text-center m-6 " id="spinner">
+             <div class="text-center m-6 hidden" id="spinner">
                 <span class="loading loading-spinner loading-lg"></span>
              </div>
             <!-- read contents -->
@@ -134,42 +134,16 @@
                 </div>
                 <!-- read details of the content -->
                 <div class="">
-                    <div class="bg-[#F3F3F5] flex flex-col  gap-4 j items-center p-4 lg:p-6 rounded-3xl">
+                    <div class="bg-[#F3F3F5] flex flex-col  gap-4 j items-center p-4 lg:p-6 rounded-3xl" id="bookTitleContainer">
                         <div class="flex gap-[137px] justify-between">
                             <h4 class="font-bold text-xl">Title</h4>
                             <div class="flex gap-1">
                                 <i class="fa-solid fa-check-double" style="color: #63E6BE;"></i>
-                                <p class="text-[14px] text-[#12132D99]">Mark as read (<span>4</span>)</p>
+                                <p class="text-[14px] text-[#12132D99]">Mark as read (<span id="countread">0</span>)</p>
                             </div>
                         </div>
-                        <div class="flex gap-2 bg-white rounded-2xl p-4">
-                            <p class="text-[#12132D] font-semibold text-[14px]">10 Kids Unaware of Their <br>Halloween Costume</p>
-                            <div class="flex gap-3 text-[#12132D99] items-center">
-                                <i class="fa-regular fa-eye"></i>
-                                <p class="text-[14px]">1,568</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-2 bg-white rounded-2xl p-4">
-                            <p class="text-[#12132D] font-semibold text-[14px]">10 Kids Unaware of Their <br>Halloween Costume</p>
-                            <div class="flex gap-3 text-[#12132D99] items-center">
-                                <i class="fa-regular fa-eye"></i>
-                                <p class="text-[14px]">1,568</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-2 bg-white rounded-2xl p-4">
-                            <p class="text-[#12132D] font-semibold text-[14px]">10 Kids Unaware of Their <br>Halloween Costume</p>
-                            <div class="flex gap-3 text-[#12132D99] items-center">
-                                <i class="fa-regular fa-eye"></i>
-                                <p class="text-[14px]">1,568</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-2 bg-white rounded-2xl p-4">
-                            <p class="text-[#12132D] font-semibold text-[14px]">10 Kids Unaware of Their <br>Halloween Costume</p>
-                            <div class="flex gap-3 text-[#12132D99] items-center">
-                                <i class="fa-regular fa-eye"></i>
-                                <p class="text-[14px]">1,568</p>
-                            </div>
-                        </div>
+                        
+                        
                     </div>
                 </div>
              </div>
@@ -197,91 +171,9 @@
                 <p class="text-lg text-[#12132D99] max-w-[691px]">Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for a streamlined .</p>
             </div>
             <!-- posts -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center items-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center items-center" id="latestPostContainer">
                 <!-- card 1 -->
-                 <div class="card bg-base-100  shadow-sm p-6 rounded-3xl">
-                        <figure>
-                            <img
-                            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                            alt="Shoes" class="rounded-[20px]"/>
-                        </figure>
-                        <div class=" ">
-                            <div class="flex text-[#12132D99] text-[16px] justify-start items-center mt-6">
-                                <i class="fa-regular fa-calendar"></i>
-                                <p>29 January 2024</p>
-                            </div>
-                            <h4 class="font-extrabold text-lg mt-[12px]">What will a mars habitat force that impact in our daily life!!!</h4>
-                            <p class="text-[#12132D99] text-[16px] mt-[12px]">Yes, you can run unit tests and view the results directly within the app. </p>
-                            <!-- avatar -->
-                             <div class="flex mt-4 gap-4">
-                                <div class="avatar">
-                                    <div class="w-[44px] rounded-full">
-                                        <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
-                                    </div>
-                                </div>
-                                <div class="">
-                                    <p class="text-[16px] font-bold">Cameron Williamson</p>
-                                    <p class="text-[#12132D99] text-[14px]">Unknown</p>
-                                </div>
-                            </div>
-                        </div>
-                 </div>
-                 <!-- card 2 -->
-                  <div class="card bg-base-100  shadow-sm p-6 rounded-3xl">
-                        <figure>
-                            <img
-                            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                            alt="Shoes" class="rounded-[20px]"/>
-                        </figure>
-                        <div class=" ">
-                            <div class="flex text-[#12132D99] text-[16px] justify-start items-center mt-6">
-                                <i class="fa-regular fa-calendar"></i>
-                                <p>29 January 2024</p>
-                            </div>
-                            <h4 class="font-extrabold text-lg mt-[12px]">What will a mars habitat force that impact in our daily life!!!</h4>
-                            <p class="text-[#12132D99] text-[16px] mt-[12px]">Yes, you can run unit tests and view the results directly within the app. </p>
-                            <!-- avatar -->
-                             <div class="flex mt-4 gap-4">
-                                <div class="avatar">
-                                    <div class="w-[44px] rounded-full">
-                                        <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
-                                    </div>
-                                </div>
-                                <div class="">
-                                    <p class="text-[16px] font-bold">Cameron Williamson</p>
-                                    <p class="text-[#12132D99] text-[14px]">Unknown</p>
-                                </div>
-                            </div>
-                        </div>
-                 </div>
-                 <!-- card 3 -->
-                  <div class="card bg-base-100  shadow-sm p-6 rounded-3xl">
-                        <figure>
-                            <img
-                            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                            alt="Shoes" class="rounded-[20px]"/>
-                        </figure>
-                        <div class=" ">
-                            <div class="flex text-[#12132D99] text-[16px] justify-start items-center mt-6">
-                                <i class="fa-regular fa-calendar"></i>
-                                <p>29 January 2024</p>
-                            </div>
-                            <h4 class="font-extrabold text-lg mt-[12px]">What will a mars habitat force that impact in our daily life!!!</h4>
-                            <p class="text-[#12132D99] text-[16px] mt-[12px]">Yes, you can run unit tests and view the results directly within the app. </p>
-                            <!-- avatar -->
-                             <div class="flex mt-4 gap-4">
-                                <div class="avatar">
-                                    <div class="w-[44px] rounded-full">
-                                        <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
-                                    </div>
-                                </div>
-                                <div class="">
-                                    <p class="text-[16px] font-bold">Cameron Williamson</p>
-                                    <p class="text-[#12132D99] text-[14px]">Unknown</p>
-                                </div>
-                            </div>
-                        </div>
-                 </div>
+                 
 
             </div>
           </section>

@@ -6,7 +6,7 @@ const loadBooks =async () =>{
     
     const books = data.posts;
     console.log(books);
-    loadSpinar(true);
+    
     displaybooks(books);
     
     
@@ -79,7 +79,7 @@ const displaybooks =(books)=>{
                                         <p class="text-[16px]">5 min</p>
                                     </div>
                                 </div>
-                                <button class=" bg-[#10B981] rounded-full p-[2px]"><i class="fa-regular fa-envelope-open " style="color:white"></i></button>
+                                <button onclick='readThebook("${book.title}")' id="bookDetails" class=" bg-[#10B981] rounded-full p-[2px]"><i class="fa-regular fa-envelope-open " style="color:white"></i></button>
                             </div>
                         </div>
                     </div>
@@ -91,21 +91,99 @@ const displaybooks =(books)=>{
     });
 }
 
-
+// load the spinner for 2 sec
 const loadSpinar = (isLoading)=>{
     console.log(isLoading);
     setInterval(2000);
     const spinner = document.getElementById('spinner');
     if(isLoading){
-         
-       
         spinner.classList.remove('hidden');
-    
-    
+
+    }
+    else{
+        setTimeout(() => {
+            spinner.classList.add('hidden');
+        }, 2000);
+    }
    
-    }
-    if(!isLoading){
-         spinner.classList.add('hidden');
-    }
 
 }
+
+// books read done and count
+const readThebook =(bookTitle)=>{
+   
+console.log(bookTitle);
+const getCountElement = document.getElementById('countread');
+const getCountText = getCountElement.innerText;
+const getCount = parseInt(getCountText);
+console.log(getCount);
+const count = getCount + 1;
+setElement('countread', count);
+console.log(count);
+const bookTitleContainer = document.getElementById('bookTitleContainer');
+const titleCard = document.createElement('div');
+titleCard.classList.add('flex', 'gap-2', 'bg-white', 'rounded-2xl', 'p-4');
+titleCard.innerHTML=`
+    <p class="text-[#12132D] font-semibold text-[14px]">${bookTitle}</p>
+    <div class="flex gap-3 text-[#12132D99] items-center">
+        <i class="fa-regular fa-eye"></i>
+        <p class="text-[14px]">1,568</p>
+     </div>
+`;
+bookTitleContainer.appendChild(titleCard);
+
+
+
+}
+
+// set element by id
+const setElement=(id, value)=>{
+    const getid = document.getElementById(id);
+    console.log(getid);
+    getid.innerText = value;
+}
+
+const loadLatestPost =async ()=>{
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/latest-posts`);
+    
+    const data = await res.json();
+    
+    const books = data;
+    console.log(books);
+    // display latest posts
+    const latestPostContainer = document.getElementById('latestPostContainer');
+    books.forEach(book => {
+        console.log(book);
+        const latestpostcard = document.createElement('div');
+    latestpostcard.classList.add('card', 'bg-base-100',  'shadow-sm', 'p-6', 'rounded-3xl');
+    latestpostcard.innerHTML = `
+                        <figure>
+                            <img
+                            src="${book.cover_image}"
+                            alt="Shoes" class="rounded-[20px]"/>
+                        </figure>
+                        <div class=" ">
+                            <div class="flex text-[#12132D99] text-[16px] justify-start items-center mt-6">
+                                <i class="fa-regular fa-calendar"></i>
+                                <p>${book?.author?.posted_date || 'No posted date mentioned'}</p>
+                            </div>
+                            <h4 class="font-extrabold text-lg mt-[12px]">${book.title}</h4>
+                            <p class="text-[#12132D99] text-[16px] mt-[12px]">${book.description}</p>
+                            <!-- avatar -->
+                             <div class="flex mt-4 gap-4">
+                                <div class="avatar">
+                                    <div class="w-[44px] rounded-full">
+                                        <img src="${book.profile_image}" />
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <p class="text-[16px] font-bold">${book?.author?.name || 'No name Posted'}</p>
+                                    <p class="text-[#12132D99] text-[14px]">${book?.author?.designation || 'No designation mentioned'}</p>
+                                </div>
+                            </div>
+                        </div>
+    `;
+    latestPostContainer.appendChild(latestpostcard);
+    });
+}
+loadLatestPost();
